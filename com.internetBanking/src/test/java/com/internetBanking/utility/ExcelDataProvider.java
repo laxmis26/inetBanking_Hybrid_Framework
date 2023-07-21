@@ -89,4 +89,9 @@ public class ExcelDataProvider {
 	  excelDataProvider.getExcelsheetData();
 	 }
 
+	public void SetStringCelldata(String string, int row, String customerID) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

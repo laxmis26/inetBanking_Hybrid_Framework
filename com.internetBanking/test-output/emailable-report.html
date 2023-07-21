@@ -9,16 +9,33 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">39,381</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">24,619</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.internetBanking.testcases.NewCustomerTC_001</td><td><a href="#m0">verifyNewCustomerTC_001</a></td><td rowspan="1">1688652808200</td><td rowspan="1">6882</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.internetBanking.testcases.NewCustomerTC_001</td><td><a href="#m1">createNewCustomeTC_002</a></td><td rowspan="3">1688652808189</td><td rowspan="3">2</td></tr><tr class="passedeven"><td><a href="#m2">createNewCustomeTC_002</a></td></tr><tr class="passedeven"><td><a href="#m3">createNewCustomeTC_002</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.internetBanking.testcases.NewCustomerTC_001</td><td><a href="#m0">verifyNewCustomerTC_001</a></td><td rowspan="1">1689866529521</td><td rowspan="1">2044</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.internetBanking.testcases.NewCustomerTC_001</td><td><a href="#m1">createNewCustomeTC_002</a></td><td rowspan="3">1689866529495</td><td rowspan="3">4</td></tr><tr class="passedeven"><td><a href="#m2">createNewCustomeTC_002</a></td></tr><tr class="passedeven"><td><a href="#m3">createNewCustomeTC_002</a></td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.internetBanking.testcases.NewCustomerTC_001#verifyNewCustomerTC_001</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at org.testng.Assert.assertTrue(Assert.java:67)
-	at com.internetBanking.testcases.NewCustomerTC_001.verifyNewCustomerTC_001(NewCustomerTC_001.java:37)
+<h2>Default test</h2><h3 id="m0">com.internetBanking.testcases.NewCustomerTC_001#verifyNewCustomerTC_001</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : User or Password is not valid}
+  (Session info: chrome=114.0.5735.201): User or Password is not valid
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6ed30f5f72f9bc17f2d0714f63e0500d, findElement {using=link text, value=New Customer}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.201, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59408}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59408/devtoo..., se:cdpVersion: 114.0.5735.201, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6ed30f5f72f9bc17f2d0714f63e0500d
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:130)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy20.click(Unknown Source)
+	at com.internetBanking.pageobject.HomePage.ClickOnNewCustomeLink(HomePage.java:28)
+	at com.internetBanking.testcases.NewCustomerTC_001.verifyNewCustomerTC_001(NewCustomerTC_001.java:27)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -48,8 +65,8 @@
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Akshaya</td><td>Male</td><td>22-Jun-2022</td><td>Shelgi</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636227E9</td><td>Ak@gmail.cim</td><td>aksh@23</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Laxmi</td><td>Female</td><td>20-Jun-2020</td><td>New Sunil Nagar</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636225E9</td><td>laxmi@gmail.com</td><td>lax@123</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Payal</td><td>Female</td><td>21-Jun-2021</td><td>Indira nagar</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636226E9</td><td>payal@gmail.com</td><td>pa@4567</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Laxmi</td><td>Female</td><td>20-Jun-2020</td><td>New Sunil Nagar</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636225E9</td><td>laxmi@gmail.com</td><td>lax@123</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Payal</td><td>Female</td><td>21-Jun-2021</td><td>Indira nagar</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636226E9</td><td>payal@gmail.com</td><td>pa@4567</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.internetBanking.testcases.NewCustomerTC_001#createNewCustomeTC_002</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr><tr class="param stripe"><td>Akshaya</td><td>Male</td><td>22-Jun-2022</td><td>Shelgi</td><td>Female</td><td>Maharashtra</td><td>413006.0</td><td>9.852636227E9</td><td>Ak@gmail.cim</td><td>aksh@23</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

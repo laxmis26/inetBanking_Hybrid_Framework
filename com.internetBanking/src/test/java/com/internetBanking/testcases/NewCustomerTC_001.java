@@ -15,6 +15,9 @@ import com.internetBanking.testbase.TestBase;
 public class NewCustomerTC_001 extends TestBase {
 
 	NewCustomerPage newcustomer;
+   HomePage homepage;
+	
+	int row=1;
 	@Test(priority = 1)
 	public void verifyNewCustomerTC_001() 
 	{
@@ -69,14 +72,43 @@ public class NewCustomerTC_001 extends TestBase {
 	public void createNewCustomeTC_002(String customerName , String Gender , String dob, String address, String city,
 			String state, String pin, String mobile, String email, String password)
 	{
-		System.out.println(customerName + " " + Gender + " "+ dob + " " +address+ " " + city + "  " + state +
-				"  "+pin + "  "+mobile + "  "+email + "  "+password);
+//		System.out.println(customerName + " " + Gender + " "+ dob + " " +address+ " " + city + "  " + state +
+//				"  "+pin + "  "+mobile + "  "+email + "  "+password);
+		LoginPage login= new LoginPage(driver);
+		login.setUsername(excelDataProvider.getStringCellData("Login", 1, 0));
+		login.setPassword(excelDataProvider.getStringCellData("Login", 1, 1));
+		
+		 homepage = login.clickonLoginBtn();
+		
+		 newcustomer =homepage.ClickOnNewCustomeLink();
+		 
+		newcustomer.setCustomerName(customerName);
+		newcustomer.selectGender(Gender);
+		newcustomer.setDOB(dob);
+		newcustomer.setAddress(address);
+		newcustomer.SetCity(city);
+		newcustomer.SetState(state);
+		newcustomer.SetPin(pin);
+		newcustomer.SetMobile(mobile);
+		newcustomer.setEmail(email);
+		newcustomer.SetPassword(password);
+		newcustomer.clickOnSubmit();
+		String successmsg = driver.findElement(By.xpath("//p[text()='Customer Registered Successfully!!!']")).getText();
+	   	System.out.println(successmsg);
+		
+	   	String customerID = driver.findElement(By.xpath("//table[@id='customer']/tbody/tr[4]/td[2]")).getText();
+		System.out.println(customerID);//  49589 20668
+		excelDataProvider.SetStringCelldata("newCustomer", row, customerID);
+		row=row+1;
+		
+	//	newcustomer = homepage.ClickOnNewCustomeLink();
+		
 	}
 	
 	@DataProvider
 	public String[][] fetchExcelTestData()
 	{
-		String [][] data= excelDataProvider.getExcelsheetData();
+		String [][] data= excelDataProvider.getExcelsheetData("newCustomer");
 		return data;
 	}
 	
