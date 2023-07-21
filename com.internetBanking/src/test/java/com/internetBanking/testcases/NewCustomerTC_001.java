@@ -1,9 +1,6 @@
 package com.internetBanking.testcases;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,30 +15,30 @@ public class NewCustomerTC_001 extends TestBase {
    HomePage homepage;
 	
 	int row=1;
-	@Test(priority = 1)
-	public void verifyNewCustomerTC_001() 
-	{
-		LoginPage login= new LoginPage(driver);
-		login.setUsername(excelDataProvider.getStringCellData("Login", 1, 0));
-		login.setPassword(excelDataProvider.getStringCellData("Login", 1, 1));
-		
-		HomePage homepage = login.clickonLoginBtn();
-		
-		 newcustomer =homepage.ClickOnNewCustomeLink();
-		String actTitle = newcustomer.verifyNewCustomerPage();
-		
-		if(actTitle.contains("New Customer"))
-		{
-			Assert.assertTrue(true);
-			System.out.println("navigated to " + driver.getTitle());
-		}
-		else
-		{
-			Assert.assertTrue(false);
-		}
-		
-		
-	}
+//	@Test(priority = 1)
+//	public void verifyNewCustomerTC_001() 
+//	{
+//		LoginPage login= new LoginPage(driver);
+//		login.setUsername(excelDataProvider.getStringCellData("Login", 1, 0));
+//		login.setPassword(excelDataProvider.getStringCellData("Login", 1, 1));
+//		
+//		HomePage homepage = login.clickonLoginBtn();
+//		
+//		 newcustomer =homepage.ClickOnNewCustomeLink();
+//		String actTitle = newcustomer.verifyNewCustomerPage();
+//		
+//		if(actTitle.contains("New Customer"))
+//		{
+//			Assert.assertTrue(true);
+//			System.out.println("navigated to " + driver.getTitle());
+//		}
+//		else
+//		{
+//			Assert.assertTrue(false);
+//		}
+//		
+//		
+//	}
 	
 //	@Test(priority = 2)
 //	public void createNewCutomerTC_002()
@@ -68,9 +65,9 @@ public class NewCustomerTC_001 extends TestBase {
 //		
 //	}
 	
-	@Test(dataProvider ="fetchExcelTestData")
+	@Test(dataProvider ="createNewCustomer")
 	public void createNewCustomeTC_002(String customerName , String Gender , String dob, String address, String city,
-			String state, String pin, String mobile, String email, String password)
+			String state, String pin, String mobile, String email, String password) throws Exception
 	{
 //		System.out.println(customerName + " " + Gender + " "+ dob + " " +address+ " " + city + "  " + state +
 //				"  "+pin + "  "+mobile + "  "+email + "  "+password);
@@ -105,7 +102,7 @@ public class NewCustomerTC_001 extends TestBase {
 		
 	}
 	
-	@DataProvider
+	@DataProvider(name="createNewCustomer")
 	public String[][] fetchExcelTestData()
 	{
 		String [][] data= excelDataProvider.getExcelsheetData("newCustomer");

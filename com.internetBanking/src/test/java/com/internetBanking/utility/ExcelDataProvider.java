@@ -2,17 +2,21 @@ package com.internetBanking.utility;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelDataProvider {
 
 	XSSFWorkbook workbook;
+	FileInputStream fins;
+	File fs;
+	FileOutputStream fout;
 
 	public ExcelDataProvider(String filename) {
 		try {
 			File fs = new File("./TestData/" + filename + ".xlsx");
-			FileInputStream fins = new FileInputStream(fs);
+			 fins = new FileInputStream(fs);
 			workbook = new XSSFWorkbook(fins);
 
 		} catch (Exception e) {
@@ -52,25 +56,48 @@ public class ExcelDataProvider {
 		return (int) workbook.getSheetAt(index).getRow(row).getCell(col).getNumericCellValue();
 	}
 	
-	public String[][] getExcelsheetData() 
+	public String[][] getExcelsheetData(String sheetname) 
 	{
-		int rows = rowcount("newCustomer"); //newCustomer
-		int cols = columncount("newCustomer",0);
+		int rows = rowcount(sheetname); //newCustomer
+		int cols = columncount(sheetname,0);
 		
 		String [][] data= new String [rows][cols];
 		for(int i=0;i<rows;i++)
 		{
 			for(int j=0;j<cols;j++)
 			{
-				data[i][j]=workbook.getSheet("newCustomer").getRow(i+1).getCell(j).toString();
+				data[i][j]=workbook.getSheet(sheetname).getRow(i+1).getCell(j).toString();
 			}
 		}
 		return data;
 	}
 	
-	public static void main(String[] args) {
+	public void createHeaderColumn(String sheetname, int row, String  Colname)
+	{
+		workbook.getSheet(sheetname).getRow(0).createCell(columncount(sheetname,row)+1).setCellValue(Colname);
 		
-	  ExcelDataProvider excelDataProvider = new ExcelDataProvider("TestData");
+		try {
+			fout = new FileOutputStream(fs);
+			workbook.write(fout);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			
+	}
+	
+	public void SetStringCelldata(String sheetname, int row, String CellData) throws Exception
+	{
+		workbook.getSheet(sheetname).getRow(0).createCell(columncount(sheetname,row)+1).setCellValue(CellData);
+		
+		fout = new FileOutputStream(fs);
+		workbook.write(fout);
+		
+		
+	}	
+	
+//	public static void main(String[] args) {
+//		
+//	  ExcelDataProvider excelDataProvider = new ExcelDataProvider("TestData");
 //	  System.out.println(excelDataProvider.rowcount(0));  // rowcount= Totalrows-1
 //	  System.out.println(excelDataProvider.columncount("Login", 0));
 //	  
@@ -86,12 +113,8 @@ public class ExcelDataProvider {
 //	  System.out.println(excelDataProvider.getStringCellData("Login", 0, 1));
 //	  System.out.println(excelDataProvider.getStringCellData("Login", 0, 2));
 	  
-	  excelDataProvider.getExcelsheetData();
-	 }
+//	  excelDataProvider.getExcelsheetData();
+//	 }
 
-	public void SetStringCelldata(String string, int row, String customerID) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }
