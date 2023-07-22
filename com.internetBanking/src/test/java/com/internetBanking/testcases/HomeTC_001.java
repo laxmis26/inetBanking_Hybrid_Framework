@@ -1,28 +1,64 @@
 package com.internetBanking.testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.internetBanking.pageobject.HomePage;
 import com.internetBanking.pageobject.LoginPage;
 import com.internetBanking.testbase.TestBase;
+import com.internetBanking.utility.Helper;
 
 public class HomeTC_001 extends TestBase {
 
-	@Test
-	public void navigateTonewCustomerTC_001()
-	{
-		LoginPage login = new LoginPage(driver);
+//	@Test
+//	public void navigateTonewCustomerTC_001()
+//	{
+//		LoginPage login = new LoginPage(driver);
+//	
+//		String username = excelDataProvider.getStringCellData("Login", 1, 0);
+//		String password = excelDataProvider.getStringCellData("Login", 1, 1);
+//		
+//		login.setUsername(username);
+//		login.setPassword(password);
+//		
+//		HomePage homepage = login.clickonLoginBtn();
+//		homepage.ClickOnNewCustomeLink();
+//		
+//		System.out.println(driver.getTitle());
+//		
+//	}
 	
+	@Test
+	public void verifyLogoutFunctionality() throws InterruptedException {
+		LoginPage login = new LoginPage(driver);
+
 		String username = excelDataProvider.getStringCellData("Login", 1, 0);
 		String password = excelDataProvider.getStringCellData("Login", 1, 1);
-		
+
 		login.setUsername(username);
 		login.setPassword(password);
-		
+
 		HomePage homepage = login.clickonLoginBtn();
-		homepage.ClickOnNewCustomeLink();
 		
-		System.out.println(driver.getTitle());
+	    Thread.sleep(3000);
 		
+		homepage.clickOnLogoutLink();
+
+		Helper.HandleAlertPopUp(driver);
+
+		String actTitle = driver.getTitle();
+		String expTitle = "Guru99 Bank Home Page";
+
+		if (actTitle.equals(expTitle)) {
+			Assert.assertTrue(true);
+//			Helper.captureScreenshot(driver, "LoginPage");
+			Helper.captureScreenshot(driver);
+
+		} else {
+//			Helper.captureScreenshot(driver, "Homepage");
+			Helper.captureScreenshot(driver);
+			Assert.assertTrue(false);
+	     }
+	
 	}
 }

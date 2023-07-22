@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.internetBanking.pageobject.LoginPage;
 import com.internetBanking.testbase.TestBase;
+import com.internetBanking.utility.Helper;
 
 public class LoginTC_002 extends TestBase {
 	
@@ -20,16 +21,20 @@ public class LoginTC_002 extends TestBase {
 		
 		String expTitle = "Guru99 Bank Manager HomePage";
 		String actTitle = driver.getTitle();
-//		if(expTitle.equals(actTitle))
-//		{
-//			Assert.assertTrue(true);
-//		}
-//		else
-//		{
-//			Assert.assertTrue(false);
-//		}
+		if(expTitle.equals(actTitle))
+		{
+			Assert.assertTrue(true);
+//			Helper.captureScreenshot(driver, "HomePage");
+			Helper.captureScreenshot(driver);
+		}
+		else
+		{
+//			Helper.captureScreenshot(driver, "LoginPage");
+			Helper.captureScreenshot(driver);
+			Assert.assertTrue(false);
+		}
 		
-		Assert.assertEquals(actTitle, expTitle, "act browser doesn't matched with expected browser");
+//		Assert.assertEquals(actTitle, expTitle, "act browser doesn't matched with expected browser");
 		
 	}
 

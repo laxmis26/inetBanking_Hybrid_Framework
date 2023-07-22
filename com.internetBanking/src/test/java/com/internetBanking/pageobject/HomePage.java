@@ -18,6 +18,10 @@ WebDriver driver;
 	@FindBy(linkText = "Edit Customer")
 	WebElement EditCustomelink;
 	
+	@FindBy(linkText = "Log out")
+	WebElement logoutlink;
+
+	
 	public HomePage(WebDriver driver) {
 	  this.driver= driver;
 	  PageFactory.initElements(driver, this);
@@ -33,5 +37,9 @@ WebDriver driver;
 	{
 		EditCustomelink.click();
 		return new EditCustomePage(driver);
+	}
+	
+	public void clickOnLogoutLink() {
+		logoutlink.click();
 	}
 }
